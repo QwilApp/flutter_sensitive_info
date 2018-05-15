@@ -1,0 +1,17 @@
+name: sensitive_info_example
+description: Demonstrates how to use the sensitive_info plugin.
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  sensitive_info:
+    path: ../
+
+flutter:
+  uses-material-design: true
