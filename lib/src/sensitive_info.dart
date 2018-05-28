@@ -19,13 +19,13 @@ class SensitiveInfo {
     return await channel.invokeMethod('isSensorAvailable');
   }
 
-  static Future<String> getItem(
-      {@required String key,
-      @required String kSecUseOperationPrompt,
-      bool biometric = true,
-      String keychainName = keychainName}) async {
+  static Future<String> getItem({
+    @required String key,
+    String kSecUseOperationPrompt,
+    bool biometric = true,
+    String keychainName = keychainName,
+  }) async {
     assert(key != null && key.isNotEmpty);
-    assert(kSecUseOperationPrompt != null && kSecUseOperationPrompt.isNotEmpty);
 
     return await channel.invokeMethod('getItem', <String, dynamic>{
       'key': key,
@@ -35,13 +35,14 @@ class SensitiveInfo {
     });
   }
 
-  static Future<String> setItem(
-      {@required String key,
-      @required String value,
-      bool biometric = true,
-      String keychainName = keychainName,
-      IosSecAccessControl secAccessControl = IosSecAccessControl.kSecAccessControlBiometryAny,
-      String secAttrAccessible}) async {
+  static Future<String> setItem({
+    @required String key,
+    @required String value,
+    bool biometric = true,
+    String keychainName = keychainName,
+    IosSecAccessControl secAccessControl = IosSecAccessControl.kSecAccessControlBiometryAny,
+    String secAttrAccessible,
+  }) async {
     assert(key != null && key.isNotEmpty);
     assert(value != null && value.isNotEmpty);
 
