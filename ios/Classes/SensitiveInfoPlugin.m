@@ -191,8 +191,8 @@ NSString *messageForError(NSError *error) {
 
     // Look up server in the keychain
     NSDictionary *found = nil;
-    CFTypeRef foundTypeRef = NULL;
-    OSStatus osStatus = SecItemCopyMatching((__bridge CFDictionaryRef) query, &foundTypeRef);
+    CFTypeRef foundTypeRef = nil;
+    OSStatus osStatus = SecItemCopyMatching((__bridge CFDictionaryRef) query, (CFTypeRef*)&foundTypeRef);
 
     if (osStatus != noErr && osStatus != errSecItemNotFound) {
         FlutterError *error = [NSError errorWithDomain:NSOSStatusErrorDomain code:osStatus userInfo:nil].flutterError;
