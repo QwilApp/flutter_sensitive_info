@@ -1,3 +1,12 @@
+// Copyright (c) 2018 NETWORK PLATFORM TECHNOLOGIES LIMITED.
+//
+// This document is the property of NETWORK PLATFORM TECHNOLOGIES LIMITED.
+// It is considered confidential and proprietary.
+//
+// This document may not be reproduced or transmitted in any form,
+// in whole or in part, without the express written permission of
+// NETWORK PLATFORM TECHNOLOGIES LIMITED.
+
 import 'package:flutter/material.dart';
 import 'package:sensitive_info/sensitive_info.dart';
 
