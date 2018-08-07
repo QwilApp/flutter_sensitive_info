@@ -177,7 +177,6 @@ NSString *messageForError(NSError *error) {
 - (void)getItem:(FlutterMethodCall *)methodCall result:(FlutterResult)result {
     NSString *keychainName = methodCall.arguments[@"keychainName"];
     NSString *key = methodCall.arguments[@"key"];
-    NSString *kSecUseOperationPrompt = methodCall.arguments[@"kSecUseOperationPrompt"];
 
     // Create dictionary of search parameters
     NSMutableDictionary *query = [@{(__bridge id) kSecClass: (__bridge id) kSecClassGenericPassword,
@@ -185,10 +184,6 @@ NSString *messageForError(NSError *error) {
             (__bridge id) kSecAttrAccount: key,
             (__bridge id) kSecReturnAttributes: (__bridge id) kCFBooleanTrue,
             (__bridge id) kSecReturnData: (__bridge id) kCFBooleanTrue} mutableCopy];
-
-    if (kSecUseOperationPrompt != NULL) {
-        [query setValue:kSecUseOperationPrompt forKey:(NSString *) kSecUseOperationPrompt];
-    }
 
     // Look up server in the keychain
     NSDictionary *found = nil;

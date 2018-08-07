@@ -21,7 +21,6 @@ class SensitiveInfo {
 
   static Future<String> getItem({
     @required String key,
-    String kSecUseOperationPrompt,
     bool biometric = true,
     String keychainName = keychainName,
   }) async {
@@ -31,7 +30,6 @@ class SensitiveInfo {
       'key': key,
       'biometric': biometric,
       'keychainName': keychainName,
-      'kSecUseOperationPrompt': kSecUseOperationPrompt
     });
   }
 
@@ -63,7 +61,7 @@ class SensitiveInfo {
 
   static Future<Map<String, dynamic>> getAllItems({String keychainNam = keychainName}) async {
     final Map<dynamic, dynamic> result =
-        await channel.invokeMethod('getAllItems', <String, dynamic>{'keychainName': keychainName});
+    await channel.invokeMethod('getAllItems', <String, dynamic>{'keychainName': keychainName});
 
     return result.cast<String, dynamic>();
   }
