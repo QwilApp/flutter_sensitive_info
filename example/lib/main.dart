@@ -67,8 +67,8 @@ class _MyAppState extends State<MyApp> {
                             color: Colors.red,
                           ),
                   ),
-                  new Text('Sensor${_availableSensor == 'none' ? '' : ' $_availableSensor'} is${_isSensorAvailable ? ' ' : ' not '
-            }available.'),
+                  new Text(
+                      'Sensor${_availableSensor == 'none' ? '' : ' $_availableSensor'} is${_isSensorAvailable ? ' ' : ' not '}available.'),
                 ],
               ),
             ),
@@ -170,10 +170,7 @@ class _MyAppState extends State<MyApp> {
                 final String key = _keyController.text;
 
                 if (key.isNotEmpty) {
-                  String value = await SensitiveInfo.getItem(
-                    key: key,
-                    kSecUseOperationPrompt: 'Verifying that\'s indeed you. :))',
-                  );
+                  String value = await SensitiveInfo.getItem(key: key);
 
                   if (value == null) {
                     _scaffold.currentState.showSnackBar(new SnackBar(content: new Text('No value for this key.')));
